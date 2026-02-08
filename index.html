@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Booking System</title>
+
+<style>
+body{
+  font-family:Arial;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  width:320px;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+input,select,button{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+}
+
+button{
+  background:#667eea;
+  color:white;
+  border:none;
+}
+
+#msg{color:green;}
+a{text-align:center;display:block;}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h2>Book Appointment</h2>
+
+<input id="name" placeholder="Your Name">
+<input id="date" type="date">
+
+<select id="service">
+<option>Consultation</option>
+<option>Design</option>
+<option>Support</option>
+</select>
+
+<button onclick="book()">Book Now</button>
+
+<div id="msg"></div>
+
+<a href="login.html">Admin Login</a>
+</div>
+
+<script>
+async function book(){
+  if(!name.value || !date.value){
+    alert("Fill all fields");
+    return;
+  }
+
+  await fetch("http://localhost:5000/bookings",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      name:name.value,
+      date:date.value,
+      service:service.value
+    })
+  });
+
+  msg.innerText="✅ Booking Successful";
+}
+</script>
+
+</body>
+</html>
