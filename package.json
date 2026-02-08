@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/bhargavgadhiya64-netizen/booking-api/issues"
   },
-  "homepage": "https://github.com/bhargavgadhiya64-netizen/booking-api#readme"
+  "homepage": "https://github.com/bhargavgadhiya64-netizen/booking-api#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
 }
